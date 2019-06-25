@@ -1,0 +1,8 @@
+import br.ufscar.dc.dsw.Cliente
+
+model {
+	Iterable<Cliente> clienteList
+}
+
+json tmpl.cliente(clienteList ?: [])
+

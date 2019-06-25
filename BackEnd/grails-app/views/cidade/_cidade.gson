@@ -1,0 +1,14 @@
+import br.ufscar.dc.dsw.Cidade
+
+model {
+    Cidade cidade
+}
+
+json {
+    id cidade.id
+    nome cidade.nome
+    estado cidade.estado
+    link {
+        href "${g.link(resource: 'cidade', absolute: true)}/${cidade.id}"
+    }
+}

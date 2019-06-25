@@ -1,0 +1,7 @@
+import br.ufscar.dc.dsw.Cidade
+
+model {
+	Cidade cidade
+}
+
+json tmpl.cidade(cidade)
