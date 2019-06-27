@@ -10,6 +10,7 @@ import { ClienteCadastroComponent } from './components/cliente-cadastro/cliente-
 import { ClienteDetalhesComponent } from './components/cliente-detalhes/cliente-detalhes.component';
 import { ClienteEdicaoComponent } from './components/cliente-edicao/cliente-edicao.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
