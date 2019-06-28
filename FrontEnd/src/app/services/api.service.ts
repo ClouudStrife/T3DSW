@@ -32,7 +32,7 @@ export class ApiService {
 
   //Get clientes
   getClientes(): Observable < Cliente[] > {
-    const url = '${apiURL}/clientes';
+    const url = apiURL;
     return this.http.get<Cliente[]>(url)
       .pipe(
         catchError(this.handleError('getClientes', []))
