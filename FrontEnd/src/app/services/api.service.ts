@@ -4,6 +4,8 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
 import { Cliente } from '../models/cliente';
+import { Locadora } from '../models/locadora';
+import { Locacao } from '../models/locacao';
 
 
 const httpOptions = {
@@ -62,4 +64,19 @@ export class ApiService {
     );
   }
 
+  // Locacao
+  getLocacoes(): Observable < Locacao[] > {
+    const url = apiURL;
+    return this.http.get<Locacao[]>(url)
+      .pipe(
+        catchError(this.handleError('getLocacoes', []))
+      );
+  }
+
+  addLocacao(locacao): Observable<Locacao> {
+    const url = apiURL;
+    return this.http.post<Locacao>(url, locacao, httpOptions).pipe(
+      catchError(this.handleError<Locacao>('addLocacao'))
+    );
+  }
 }
