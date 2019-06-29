@@ -1,0 +1,8 @@
+import br.ufscar.dc.dsw.Locacao
+
+model {
+	Iterable<Locacao> locacaoList
+}
+
+json tmpl.locacao(locacaoList ?: [])
+
