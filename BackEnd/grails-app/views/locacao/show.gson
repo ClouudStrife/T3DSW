@@ -1,0 +1,7 @@
+import br.ufscar.dc.dsw.Locacao
+
+model {
+	Locacao locacao
+}
+
+json tmpl.locacao(locacao)

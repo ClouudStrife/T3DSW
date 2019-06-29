@@ -4,6 +4,8 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
 import { Cliente } from '../models/cliente';
+import { Locadora } from '../models/locadora';
+import { Locacao } from '../models/locacao';
 
 
 const httpOptions = {
@@ -39,10 +41,84 @@ export class ApiService {
       );
   }
 
-  addCliente (cliente): Observable<Cliente> {
+  addCliente(cliente): Observable<Cliente> {
     const url = apiURL;
     return this.http.post<Cliente>(url, cliente, httpOptions).pipe(
       catchError(this.handleError<Cliente>('addCliente'))
     );
   }
+
+  editCliente(cliente): Observable<Cliente> {
+    const url = apiURL;
+    return this.http.put<Cliente>(url, cliente, httpOptions).pipe(
+      catchError(this.handleError<Cliente>('editCliente'))
+    );
+  }
+
+  deleteCliente(cliente): Observable<Cliente> {
+    const url = apiURL + "/" + cliente.id;
+    return this.http.delete<Cliente>(url, httpOptions).pipe(
+      catchError(this.handleError<Cliente>('deleteCliente'))
+    );
+  }
+
+  // Locadora
+  getLocadoras(): Observable < Locadora[] > {
+    const url = apiURL;
+    return this.http.get<Locadora[]>(url)
+      .pipe(
+        catchError(this.handleError('getLocadoras', []))
+      );
+  }
+
+  addLocadora(locadora): Observable<Locadora> {
+    const url = apiURL;
+    return this.http.post<Locadora>(url, locadora, httpOptions).pipe(
+      catchError(this.handleError<Locadora>('addLocadora'))
+    );
+  }
+
+  deleteLocadora(locadora): Observable<Locadora> {
+    const url = apiURL + "/" + locadora.id;
+    return this.http.delete<Locadora>(url, httpOptions).pipe(
+      catchError(this.handleError<Locadora>('deleteLocadora'))
+    );
+  }
+
+  editLocadora(locadora): Observable<Locadora> {
+    const url = apiURL;
+    return this.http.put<Locadora>(url, locadora, httpOptions).pipe(
+      catchError(this.handleError<Locadora>('editLocadora'))
+    );
+  }
+
+  // Locacao
+  getLocacoes(): Observable < Locacao[] > {
+    const url = apiURL;
+    return this.http.get<Locacao[]>(url)
+      .pipe(
+        catchError(this.handleError('getLocacoes', []))
+      );
+  }
+
+  addLocacao(locacao): Observable<Locacao> {
+    const url = apiURL;
+    return this.http.post<Locacao>(url, locacao, httpOptions).pipe(
+      catchError(this.handleError<Locacao>('addLocacao'))
+    );
+  }
+
+  editLocacao(locacao): Observable<Locacao> {
+    const url = apiURL;
+    return this.http.put<Locacao>(url, locacao, httpOptions).pipe(
+      catchError(this.handleError<Locacao>('editLocacao'))
+    );
+  }
+
+  deleteLocacao(locacao): Observable<Locacao> {
+    const url = apiURL + "/" + locacao.id;
+    return this.http.delete<Locacao>(url, httpOptions).pipe(
+      catchError(this.handleError<Locacao>('deleteLocacao'))
+    );
+  }  
 }

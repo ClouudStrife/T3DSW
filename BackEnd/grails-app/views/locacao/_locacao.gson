@@ -1,0 +1,7 @@
+import br.ufscar.dc.dsw.Locacao
+
+model {
+	Locacao locacao
+}
+
+json g.render(locacao, [resolveTemplate: false])

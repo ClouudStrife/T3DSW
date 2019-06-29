@@ -1,0 +1,7 @@
+import br.ufscar.dc.dsw.Locadora
+
+model {
+	Locadora locadora
+}
+
+json g.render(locadora, [resolveTemplate: false])
