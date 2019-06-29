@@ -1,20 +1,10 @@
-package cidadesrest
+package t3dsw
 
-import br.ufscar.dc.dsw.Cidade
 import br.ufscar.dc.dsw.Cliente
 
 class BootStrap {
 
     def init = { servletContext ->
-
-        new File('cidades.txt').eachLine { line ->
-            def tokens = line.tokenize(",")
-            def cidade = new Cidade(nome: tokens[1], estado: tokens[0]);
-            cidade.save flush: true
-            if (cidade.hasErrors()) {
-                println cidade.errors
-            }
-        }
 
         new File('clientes.txt').eachLine { line ->
             def tokens = line.tokenize(",")

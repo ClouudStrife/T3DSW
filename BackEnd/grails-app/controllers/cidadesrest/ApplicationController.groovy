@@ -1,4 +1,4 @@
-package cidadesrest
+package t3dsw
 
 import grails.core.GrailsApplication
 import grails.plugins.*
