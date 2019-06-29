@@ -10,6 +10,10 @@ table{
   margin: 2rem;
 }
 
+table {
+  width: 100%;
+}
+
 tr.example-detail-row {
   height: 0;
 }
@@ -31,18 +35,9 @@ tr.example-element-row:not(.example-expanded-row):active {
   display: flex;
 }
 
-.example-element-symbol {
-  font-weight: bold;
-  font-size: 40px;
-  line-height: normal;
+.example-element-detail > .btns > * {
+  margin: .5rem;
 }
 
-.example-element-description {
-  padding: 16px;
-}
-
-.example-element-description-attribution {
-  opacity: 0.5;
-}
 
 

@@ -19,7 +19,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class ClientesComponent implements OnInit {
 
-  colunasTabela: string[] = ['Nome', 'CPF', 'Email', 'Telefone', 'Data de Nascimento'];
+  colunasTabela: string[] = ['ID', 'Nome', 'CPF', 'Email', 'Telefone', 'Data de Nascimento'];
   clientes: Cliente[] = [];
   isLoading = true;
 
