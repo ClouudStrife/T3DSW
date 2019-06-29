@@ -17,6 +17,10 @@ export class AppComponent {
     this.router.navigate(['/login']);
   }
 
+  r2(destination: String) {
+    this.router.navigate([destination])
+  }
+
   public get loggedIn(): boolean {
     return localStorage.getItem('authentication') !== null;
   }

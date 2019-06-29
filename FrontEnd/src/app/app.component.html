@@ -1,21 +1,29 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar color="secondary">
-  <h3>T3 DSW</h3>
-  <ng-template [ngIf]="loggedIn">
-    <div class="logout" style="text-align:right">
+<mat-toolbar color="primary">
+  <h3 class="banner" (click)="r2('/')">T3 DSW</h3>
+  <div class="links">
+    <ng-template [ngIf]="loggedIn" [ngIfElse]="redirectToLogin">
       <mat-card-actions>
-        <button mat-flat-button color="primary" style="color: white" (click)="logout()">Sair</button>
+        <button mat-button color="link" (click)="r2('/clientes')">Clientes</button>
       </mat-card-actions>
-    </div>
-  </ng-template>
-</mat-toolbar>
-<p></p>
+      <mat-card-actions>
+        <button mat-flat-button color="warn"  (click)="logout()">Sair</button>
+      </mat-card-actions>
+    </ng-template>
 
-<p></p>
+    <ng-template #redirectToLogin>
+      <mat-card-actions>
+        <button mat-flat-button color="accent" style="color: white" (click)="r2('/login')">Entrar</button>
+      </mat-card-actions>
+    </ng-template>
+  </div>
+</mat-toolbar>
+
 <div class="alert-box">
-  <app-alert></app-alert>
+    <app-alert></app-alert>
 </div>
-<p></p>
 <div class="container">
-  <router-outlet></router-outlet>
+  <main class="mat-elevation-z1">
+    <router-outlet></router-outlet>
+  </main>
 </div>
