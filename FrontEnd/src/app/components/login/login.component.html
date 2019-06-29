@@ -8,14 +8,14 @@
           <tr>
             <td>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Usuário" [(ngModel)]="username" name="username" required>
+                <input matInput placeholder="CPF" [(ngModel)]="cpf" name="cpf" required>
               </mat-form-field>
             </td>
           </tr>
           <tr>
             <td>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Senha" [(ngModel)]="password" type="password" name="password" required>
+                <input matInput placeholder="Senha" [(ngModel)]="senha" type="password" name="senha" required>
               </mat-form-field>
             </td>
           </tr>
@@ -24,7 +24,7 @@
       <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>
     <mat-card-actions class="login-box">
-      <button mat-raised-button (click)="login()" color="primary">OK</button>
+      <button mat-raised-button (click)="login()" color="primary">ENTRAR</button>
     </mat-card-actions>
   </mat-card>
   

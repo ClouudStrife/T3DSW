@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
     private jwtService: JwtService,
     private alertService: AlertService) { }
 
-  username: string;
-  password: string;
+  cpf: string;
+  senha: string;
 
   ngOnInit() {
     // get return url from route parameters or default to '/'
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.jwtService.login(this.username, this.password).subscribe(
+    this.jwtService.login(this.cpf, this.senha).subscribe(
       res => {
         this.router.navigate([this.returnUrl]);
       },
