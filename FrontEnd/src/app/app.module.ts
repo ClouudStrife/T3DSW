@@ -26,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { Autenticacao } from './models/autenticacao';
 import { LoginComponent } from './components/login/login.component';
 import { AlertComponent } from './components/alert/alert.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AlertComponent } from './components/alert/alert.component';
     ClienteDetalhesComponent,
     ClienteEdicaoComponent,
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

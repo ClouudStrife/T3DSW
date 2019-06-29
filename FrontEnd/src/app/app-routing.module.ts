@@ -6,6 +6,7 @@ import { ClienteCadastroComponent } from './components/cliente-cadastro/cliente-
 import { ClienteEdicaoComponent } from './components/cliente-edicao/cliente-edicao.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './helpers/auth-guard';
+import { HomeComponent } from './components/home/home.component';
 
 
 const routes: Routes = [
@@ -14,7 +15,7 @@ const routes: Routes = [
   { path: 'edita-cliente/:id', canActivate: [AuthGuard], component: ClienteEdicaoComponent },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
 
-  { path:'', redirectTo:'/clientes', pathMatch: 'full'}
+  { path:'', component: HomeComponent, pathMatch: 'full'}
 ];
 
 @NgModule({
