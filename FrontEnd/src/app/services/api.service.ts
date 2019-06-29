@@ -71,6 +71,12 @@ export class ApiService {
     );
   }
 
+  deleteLocadora(locadora): Observable<Locadora> {
+    const url = apiURL + "/" + locadora.id;
+    return this.http.delete<Locadora>(url, httpOptions).pipe(
+      catchError(this.handleError<Locadora>('deleteLocadora'))
+    );
+  }
   // Locacao
   getLocacoes(): Observable < Locacao[] > {
     const url = apiURL;
