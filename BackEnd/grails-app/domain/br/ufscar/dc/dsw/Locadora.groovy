@@ -11,6 +11,6 @@ class Locadora {
 	String cidade
 
 	String toString(){
-		return "{cnpj: '$cnpj', nome: '$nome', email: '$email', senha: '$senha', cidade: '$cidade'}"
+		return "{cnpj: '$cnpj', nome: '$nome', email: '$email', senha: '$senha', cidade: '$cidade', papel: 'locadora'}"
     }	
 }

@@ -13,6 +13,6 @@ class Cliente {
 	String data_nascimento
 
 	String toString(){
-		return "{cpf: '$cpf', nome: '$nome', email: '$email', senha: '$senha', telefone: '$telefone', sexo: '$sexo', data_nascimento: '$data_nascimento'}"
+		return "{cpf: '$cpf', nome: '$nome', email: '$email', senha: '$senha', telefone: '$telefone', sexo: '$sexo', data_nascimento: '$data_nascimento', papel: 'cliente'}"
     }
 }
