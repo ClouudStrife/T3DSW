@@ -95,8 +95,8 @@ export class ApiService {
     );
   }
 
-  editLocadora(locadora): Observable<Locadora> {
-    const url = apiURL;
+  editLocadora(id, locadora): Observable<Locadora> {
+    const url = apiURL + "/" + id;
     return this.http.put<Locadora>(url, locadora, httpOptions).pipe(
       catchError(this.handleError<Locadora>('editLocadora'))
     );
@@ -115,13 +115,6 @@ export class ApiService {
     const url = apiURL;
     return this.http.post<Locacao>(url, locacao, httpOptions).pipe(
       catchError(this.handleError<Locacao>('addLocacao'))
-    );
-  }
-
-  editLocacao(locacao): Observable<Locacao> {
-    const url = apiURL;
-    return this.http.put<Locacao>(url, locacao, httpOptions).pipe(
-      catchError(this.handleError<Locacao>('editLocacao'))
     );
   }
 
