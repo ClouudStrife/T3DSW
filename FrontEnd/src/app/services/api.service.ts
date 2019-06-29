@@ -45,4 +45,21 @@ export class ApiService {
       catchError(this.handleError<Cliente>('addCliente'))
     );
   }
+
+  // Locadora
+  getLocadoras(): Observable < Locadora[] > {
+    const url = apiURL;
+    return this.http.get<Locadora[]>(url)
+      .pipe(
+        catchError(this.handleError('getLocadoras', []))
+      );
+  }
+
+  addLocadora (locadora): Observable<Locadora> {
+    const url = apiURL;
+    return this.http.post<Locadora>(url, locadora, httpOptions).pipe(
+      catchError(this.handleError<Locadora>('addLocadora'))
+    );
+  }
+
 }
