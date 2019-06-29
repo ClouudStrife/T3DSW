@@ -38,4 +38,11 @@ export class ApiService {
         catchError(this.handleError('getClientes', []))
       );
   }
+
+  addCliente (cliente): Observable<Cliente> {
+    const url = apiURL;
+    return this.http.post<Cliente>(url, cliente, httpOptions).pipe(
+      catchError(this.handleError<Cliente>('addCliente'))
+    );
+  }
 }
