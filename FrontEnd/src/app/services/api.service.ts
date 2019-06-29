@@ -77,6 +77,14 @@ export class ApiService {
       catchError(this.handleError<Locadora>('deleteLocadora'))
     );
   }
+
+  editLocadora(locadora): Observable<Locadora> {
+    const url = apiURL;
+    return this.http.put<Locadora>(url, locadora, httpOptions).pipe(
+      catchError(this.handleError<Locadora>('editLocadora'))
+    );
+  }
+
   // Locacao
   getLocacoes(): Observable < Locacao[] > {
     const url = apiURL;
