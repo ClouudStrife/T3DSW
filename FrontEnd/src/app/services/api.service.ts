@@ -55,6 +55,13 @@ export class ApiService {
     );
   }
 
+  deleteCliente(cliente): Observable<Cliente> {
+    const url = apiURL + "/" + cliente.id;
+    return this.http.delete<Cliente>(url, httpOptions).pipe(
+      catchError(this.handleError<Cliente>('deleteCliente'))
+    );
+  }
+
   // Locadora
   getLocadoras(): Observable < Locadora[] > {
     const url = apiURL;
