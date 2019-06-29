@@ -15,17 +15,17 @@ class ApplicationController implements PluginManagerAware {
 
 	def login() {
 		if (request.JSON.documento == "admin@admin" && request.JSON.senha == "admin") {
-			render '{"papel": "admin"}'
+			render '{"papel": ["admin"]}'
 		} else {
 			Cliente cl = Cliente.find { cpf == request.JSON.documento && senha == request.JSON.senha }
 
 			if (cl) {
-				render cl
+				render '{"papel": ["cliente"], "usuario": '+cl+'}'
 			} else {
 				Locadora lo = Locadora.find { cnpj == request.JSON.documento && senha == request.JSON.senha }
 				
 				if (lo) {
-					render lo
+					render '{"papel": ["locadora"], "usuario": '+lo+'}'
 				} else {
 					render '{"erro": true, "mensagem": "Usuário ou senha não encontrados"}'
 				}
