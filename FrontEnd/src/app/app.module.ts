@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,9 @@ import {
   MatFormFieldModule,
   MatToolbarModule } from "@angular/material";
 import { MatSelectModule } from '@angular/material/select';
+import { Autenticacao } from './models/autenticacao';
+import { LoginComponent } from './components/login/login.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 
 @NgModule({
@@ -30,7 +34,9 @@ import { MatSelectModule } from '@angular/material/select';
     ClientesComponent,
     ClienteCadastroComponent,
     ClienteDetalhesComponent,
-    ClienteEdicaoComponent
+    ClienteEdicaoComponent,
+    LoginComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,18 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatToolbarModule
+    MatToolbarModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return localStorage.getItem('access_token');
+        },
+        whitelistedDomains: ['localhost:8080'],
+        blacklistedRoutes: ['http://localhost:8080/LivrosRS/api/login',
+          'http://localhost:8080/LivrosRS/oauth/access_token']
+      }
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]
