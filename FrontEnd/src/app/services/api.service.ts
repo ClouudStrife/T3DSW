@@ -41,7 +41,7 @@ export class ApiService {
       );
   }
 
-  addCliente (cliente): Observable<Cliente> {
+  addCliente(cliente): Observable<Cliente> {
     const url = apiURL;
     return this.http.post<Cliente>(url, cliente, httpOptions).pipe(
       catchError(this.handleError<Cliente>('addCliente'))
@@ -71,7 +71,7 @@ export class ApiService {
       );
   }
 
-  addLocadora (locadora): Observable<Locadora> {
+  addLocadora(locadora): Observable<Locadora> {
     const url = apiURL;
     return this.http.post<Locadora>(url, locadora, httpOptions).pipe(
       catchError(this.handleError<Locadora>('addLocadora'))
