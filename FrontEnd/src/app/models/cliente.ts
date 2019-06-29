@@ -1,4 +1,6 @@
-export class Cliente{
+import { Usuario } from './usuario';
+
+export class Cliente extends Usuario {
     id:String;
     nome:String;
     cpf:String;

@@ -1,4 +1,6 @@
-export class Locadora {
+import { Usuario } from './usuario';
+
+export class Locadora extends Usuario {
     id:String;
     nome:String;
     cnpj:String;
