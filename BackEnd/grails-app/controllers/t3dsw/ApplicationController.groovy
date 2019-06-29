@@ -14,20 +14,20 @@ class ApplicationController implements PluginManagerAware {
     }
 
 	def login() {
-		if (params.documento == "admin@admin" && params.senha == "admin") {
+		if (request.JSON.documento == "admin@admin" && request.JSON.senha == "admin") {
 			render '{"papel": "admin"}'
 		} else {
-			Cliente cl = Cliente.find { cpf == params.documento && senha == params.senha }
+			Cliente cl = Cliente.find { cpf == request.JSON.documento && senha == request.JSON.senha }
 
 			if (cl) {
 				render cl
 			} else {
-				Locadora lo = Locadora.find { cnpj == params.documento && senha == params.senha }
+				Locadora lo = Locadora.find { cnpj == request.JSON.documento && senha == request.JSON.senha }
 				
 				if (lo) {
 					render lo
 				} else {
-					render '{"erro": "Usuário ou senha não encontrados"}'
+					render '{"erro": true, "mensagem": "Usuário ou senha não encontrados"}'
 				}
 			}
 		}
