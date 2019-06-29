@@ -15,7 +15,7 @@ class ApplicationController implements PluginManagerAware {
 
 	def login() {
 		if (params.documento == "admin@admin" && params.senha == "admin") {
-			render "{papel: 'admin'}"
+			render "{'papel': 'admin'}"
 		} else {
 			Cliente cl = Cliente.find { cpf == params.documento && senha == params.senha }
 
@@ -24,10 +24,10 @@ class ApplicationController implements PluginManagerAware {
 			} else {
 				Locadora lo = Locadora.find { cnpj == params.documento && senha == params.senha }
 				
-				if (cl) {
+				if (lo) {
 					render lo
 				} else {
-					render "{erro: true, mensagem: 'Usuário ou senha não encontrados'}"
+					render "{'erro': 'Usuário ou senha não encontrados'}"
 				}
 			}
 		}
