@@ -4,13 +4,4 @@ model {
 	Cliente cliente
 }
 
-json {
-	id cliente.id
-    cpf cliente.cpf
-    nome cliente.nome
-    email cliente.email
-    senha cliente.senha
-    telefone cliente.telefone
-    sexo cliente.sexo
-    data_nascimento cliente.data_nascimento
-}
+json g.render(cliente, [resolveTemplate: false])
