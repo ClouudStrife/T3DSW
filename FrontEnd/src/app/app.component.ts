@@ -18,6 +18,6 @@ export class AppComponent {
   }
 
   public get loggedIn(): boolean {
-    return localStorage.getItem('access_token') !== null;
+    return localStorage.getItem('authentication') !== null;
   }
 }

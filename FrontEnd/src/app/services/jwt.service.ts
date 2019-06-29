@@ -20,15 +20,11 @@ export class JwtService {
 
         res.when = new Date();
         localStorage.setItem('authentication', JSON.stringify(res));
-        localStorage.setItem('access_token', res.access_token);
-        localStorage.setItem('refresh_token', res.refresh_token);
       }));
   }
 
   logout() {
     localStorage.removeItem('authentication');
-    localStorage.removeItem('access_token');
-    localStorage.removeItem('refresh_token');
   }
 
   getAuthentication(): Observable<Autenticacao> {
@@ -46,14 +42,12 @@ export class JwtService {
     const auth: Autenticacao = await this.getAuthentication().toPromise();
     auth.when = new Date();
     localStorage.setItem('authentication', JSON.stringify(auth));
-    localStorage.setItem('access_token', auth.access_token);
-    localStorage.setItem('refresh_token', auth.refresh_token);
     console.debug('RefreshToken(): I will wait until promise is resolved..');
   }
 
 
   public get loggedIn(): boolean {
-    const hasToken: boolean = localStorage.getItem('access_token') !== null;
+    const hasToken: boolean = localStorage.getItem('authentication') !== null;
     if (hasToken) {
       const auth = JSON.parse(localStorage.getItem('authentication'));
       const date1: number = new Date(auth.when).getTime() / 1000 + auth.expires_in;
