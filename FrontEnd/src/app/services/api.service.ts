@@ -92,4 +92,12 @@ export class ApiService {
       catchError(this.handleError<Locacao>('addLocacao'))
     );
   }
+
+  editLocacao(locacao): Observable<Locacao> {
+    const url = apiURL;
+    return this.http.put<Locacao>(url, locacao, httpOptions).pipe(
+      catchError(this.handleError<Locacao>('editLocacao'))
+    );
+  }
+
 }
