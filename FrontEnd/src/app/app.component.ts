@@ -21,7 +21,15 @@ export class AppComponent {
     this.router.navigate([destination])
   }
 
+  
+  public get showLogin(): boolean {console.log(this.router.url)
+    return !this.loggedIn && !this.inLogin;
+  }
+
   public get loggedIn(): boolean {
     return localStorage.getItem('authentication') !== null;
+  }
+  public get inLogin(): boolean {
+    return this.router.url.startsWith('/login');
   }
 }
