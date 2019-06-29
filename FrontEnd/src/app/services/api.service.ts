@@ -115,4 +115,10 @@ export class ApiService {
     );
   }
 
+  deleteLocacao(locacao): Observable<Locacao> {
+    const url = apiURL + "/" + locacao.id;
+    return this.http.delete<Locacao>(url, httpOptions).pipe(
+      catchError(this.handleError<Locacao>('deleteLocacao'))
+    );
+  }  
 }
