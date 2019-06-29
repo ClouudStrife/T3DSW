@@ -1,4 +1,4 @@
-package cidadesrest
+package t3dsw
 
 import grails.boot.GrailsApp
 import grails.boot.config.GrailsAutoConfiguration

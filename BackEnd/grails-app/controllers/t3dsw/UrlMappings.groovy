@@ -1,4 +1,4 @@
-package cidadesrest
+package t3dsw
 
 class UrlMappings {
 
@@ -9,11 +9,6 @@ class UrlMappings {
         post "/$controller(.$format)?"(action:"save")
         put "/$controller/$id(.$format)?"(action:"update")
         patch "/$controller/$id(.$format)?"(action:"patch")
-
-		
-
-		"/cidades"(resources:"cidade")
-		"/cidades/estado/$estado"(controller: 'cidade', action: 'getByEstado')
 
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')

@@ -1,8 +1,0 @@
-import br.ufscar.dc.dsw.Cidade
-
-model {
-	Iterable<Cidade> cidadeList
-}
-
-json tmpl.cidade(cidadeList ?: [])
-
