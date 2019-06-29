@@ -1,1 +1,3 @@
-45299448814,Gabriel o melhor,melhor@gmail.com,senhaforte,16448754321,machomen,01/01/2018
+45299448814,Gabriel,melhor@gmail.com,senhaforte,16448754321,masculino,01/01/2018
+12345678910,Caio,taquase@gmail.com,senhaforte,16448754321,masculino,01/01/2018
+98765432100,Alisson,alynva@gmail.com,senhaforte,16448754321,masculino,01/01/2018
