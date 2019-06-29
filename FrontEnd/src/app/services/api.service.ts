@@ -41,6 +41,13 @@ export class ApiService {
       );
   }
 
+  getCliente(id:number): Observable < Cliente > {
+    const url = apiURL + "/" + id;
+    return this.http.get<Cliente>(url).pipe(
+      catchError(this.handleError<Cliente>('getCliente'))
+    );
+  }
+
   addCliente(cliente): Observable<Cliente> {
     const url = apiURL;
     return this.http.post<Cliente>(url, cliente, httpOptions).pipe(
@@ -48,8 +55,10 @@ export class ApiService {
     );
   }
 
-  editCliente(cliente): Observable<Cliente> {
-    const url = apiURL;
+  editCliente(id, cliente): Observable<Cliente> {
+    cliente.id = id;
+    console.log(cliente);
+    const url = apiURL + "/" + id;
     return this.http.put<Cliente>(url, cliente, httpOptions).pipe(
       catchError(this.handleError<Cliente>('editCliente'))
     );

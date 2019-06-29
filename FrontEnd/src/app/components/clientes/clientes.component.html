@@ -41,7 +41,7 @@
                 <div class="example-element-detail"
                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
                     <div class="btns">
-                        <button mat-raised-button color="primary">Editar</button>
+                        <button mat-raised-button color="primary" [routerLink]="['/edita-cliente', element.id]">Editar</button>
                         <button (click)="deleteCliente(element.id)" mat-raised-button color="primary">Deletar</button>
                     </div>
                 </div>
