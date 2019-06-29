@@ -42,7 +42,7 @@
                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
                     <div class="btns">
                         <button mat-raised-button color="primary">Editar</button>
-                        <button (click)="" mat-raised-button color="primary">Deletar</button>
+                        <button (click)="deleteCliente(element.id)" mat-raised-button color="primary">Deletar</button>
                     </div>
                 </div>
         </ng-container>

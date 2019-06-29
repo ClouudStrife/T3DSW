@@ -55,8 +55,9 @@ export class ApiService {
     );
   }
 
-  deleteCliente(cliente): Observable<Cliente> {
-    const url = apiURL + "/" + cliente.id;
+  deleteCliente(id): Observable<Cliente> {
+    console.log(id);
+    const url = apiURL + "/" + id;
     return this.http.delete<Cliente>(url, httpOptions).pipe(
       catchError(this.handleError<Cliente>('deleteCliente'))
     );

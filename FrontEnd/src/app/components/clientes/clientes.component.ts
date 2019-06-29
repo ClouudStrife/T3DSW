@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Cliente } from '../../models/cliente';
 import {animate, state, style, transition, trigger} from '@angular/animations';
@@ -23,7 +24,7 @@ export class ClientesComponent implements OnInit {
   clientes: Cliente[] = [];
   isLoading = true;
 
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService,  private router: Router) { }
 
   ngOnInit() {
     this.getData();
@@ -33,5 +34,17 @@ export class ClientesComponent implements OnInit {
     this.clientes = await this.api.getClientes().toPromise();
     this.isLoading = false;
   }
+
+  deleteCliente(id) { 
+    this.api.deleteCliente(id)
+      .subscribe(res => {
+          console.log(res);
+          this.getData();
+        }, (err) => {
+          console.log(err);
+        }
+      );
+  }
+
   
 }
