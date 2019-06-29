@@ -48,6 +48,13 @@ export class ApiService {
     );
   }
 
+  editCliente(cliente): Observable<Cliente> {
+    const url = apiURL;
+    return this.http.put<Cliente>(url, cliente, httpOptions).pipe(
+      catchError(this.handleError<Cliente>('editCliente'))
+    );
+  }
+
   // Locadora
   getLocadoras(): Observable < Locadora[] > {
     const url = apiURL;
