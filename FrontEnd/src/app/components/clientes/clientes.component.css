@@ -37,12 +37,13 @@ tr.example-element-row:not(.example-expanded-row):active {
 
 .example-element-detail {
   overflow: hidden;
-  display: flex;
+  text-align: center;
 }
 
-.example-element-detail > .btns > * {
+.example-element-detail > button{
   margin: .5rem;
 }
+
 
 
 
