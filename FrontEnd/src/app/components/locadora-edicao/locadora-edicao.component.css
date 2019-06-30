@@ -2,3 +2,15 @@
     width: 100%;
     margin: .5rem;
 }
+
+.button-row{
+    text-align: center;
+}
+
+.button-row > *{
+    margin-top: 2rem;
+}
+
+.example-card{
+    padding: 2rem;
+}
