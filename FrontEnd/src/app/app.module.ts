@@ -21,7 +21,8 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
-  MatToolbarModule } from "@angular/material";
+  MatToolbarModule,
+  MatGridListModule } from "@angular/material";
 import { MatSelectModule } from '@angular/material/select';
 import { Autenticacao } from './models/autenticacao';
 import { LoginComponent } from './components/login/login.component';
@@ -66,6 +67,7 @@ import { LocadoraEdicaoComponent } from './components/locadora-edicao/locadora-e
     MatSelectModule,
     MatFormFieldModule,
     MatToolbarModule,
+    MatGridListModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter() {

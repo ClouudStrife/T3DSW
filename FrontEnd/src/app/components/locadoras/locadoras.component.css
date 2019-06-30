@@ -24,7 +24,7 @@ table{
   }
   
   tr.example-element-row:not(.example-expanded-row):hover {
-    background: #777;
+    background: #dad9da;
   }
   
   tr.example-element-row:not(.example-expanded-row):active {
