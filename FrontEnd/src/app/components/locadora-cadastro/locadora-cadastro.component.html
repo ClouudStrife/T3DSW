@@ -1,0 +1,49 @@
+<div class="example-container">
+    <mat-card class="example-card mat-elevation-z0">
+        <form [formGroup]="locadoraForm" (ngSubmit)="onFormSubmit(locadoraForm.value)">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Nome" formControlName="nome" [errorStateMatcher]="matcher"/>
+            <mat-error>
+            <span *ngIf="!locadoraForm.get('nome').valid && locadoraForm.get('nome').touched">
+                Nome é um campo obrigatório !
+            </span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher"/>
+            <mat-error>
+                <span *ngIf="!locadoraForm.get('email').valid && locadoraForm.get('email').touched">
+                    Email é um campo obrigatório !
+                </span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input type="password" matInput placeholder="Senha" formControlName="senha" [errorStateMatcher]="matcher"/>
+            <mat-error>
+                <span *ngIf="!locadoraForm.get('senha').valid && locadoraForm.get('senha').touched">
+                    Senha é um campo obrigatório !
+                </span>
+            </mat-error>
+        </mat-form-field>       
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="CNPJ" formControlName="cnpj" [errorStateMatcher]="matcher"/>
+            <mat-error>
+                <span *ngIf="!locadoraForm.get('cnpj').valid && locadoraForm.get('cnpj').touched">
+                    CNPJ é um campo obrigatório !
+                </span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Cidade" formControlName="cidade" [errorStateMatcher]="matcher"/>
+            <mat-error>
+                <span *ngIf="!locadoraForm.get('cidade').valid && locadoraForm.get('cidade').touched">
+                    Cidade é um campo obrigatório !
+                </span>
+            </mat-error>
+        </mat-form-field>
+        <div class="button-row">
+            <button type="submit" mat-raised-button color="primary">Cadastrar</button>
+        </div>
+        </form>
+    </mat-card>
+</div>

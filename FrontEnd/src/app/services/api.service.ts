@@ -11,7 +11,7 @@ import { Locacao } from '../models/locacao';
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-const apiURL = "http://localhost:8080/Cliente";
+const apiURL = "http://localhost:8080";
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +34,7 @@ export class ApiService {
 
   //Get clientes
   getClientes(): Observable < Cliente[] > {
-    const url = apiURL;
+    const url = apiURL + "/Cliente";
     return this.http.get<Cliente[]>(url)
       .pipe(
         catchError(this.handleError('getClientes', []))
@@ -42,14 +42,14 @@ export class ApiService {
   }
 
   getCliente(id:number): Observable < Cliente > {
-    const url = apiURL + "/" + id;
+    const url = apiURL + "/Cliente/" + id;
     return this.http.get<Cliente>(url).pipe(
       catchError(this.handleError<Cliente>('getCliente'))
     );
   }
 
   addCliente(cliente): Observable<Cliente> {
-    const url = apiURL;
+    const url = apiURL + "/Cliente";
     return this.http.post<Cliente>(url, cliente, httpOptions).pipe(
       catchError(this.handleError<Cliente>('addCliente'))
     );
@@ -58,7 +58,7 @@ export class ApiService {
   editCliente(id, cliente): Observable<Cliente> {
     cliente.id = id;
     console.log(cliente);
-    const url = apiURL + "/" + id;
+    const url = apiURL + "/Cliente/" + id;
     return this.http.put<Cliente>(url, cliente, httpOptions).pipe(
       catchError(this.handleError<Cliente>('editCliente'))
     );
@@ -66,7 +66,7 @@ export class ApiService {
 
   deleteCliente(id): Observable<Cliente> {
     console.log(id);
-    const url = apiURL + "/" + id;
+    const url = apiURL + "/Cliente/" + id;
     return this.http.delete<Cliente>(url, httpOptions).pipe(
       catchError(this.handleError<Cliente>('deleteCliente'))
     );
@@ -74,29 +74,38 @@ export class ApiService {
 
   // Locadora
   getLocadoras(): Observable < Locadora[] > {
-    const url = apiURL;
+    const url = apiURL + "/Locadora";
     return this.http.get<Locadora[]>(url)
       .pipe(
         catchError(this.handleError('getLocadoras', []))
       );
   }
 
+  getLocadora(id:number): Observable <Locadora> {
+    const url = apiURL + "/Locadora/" + id;
+    return this.http.get<Locadora>(url)
+      .pipe(
+        catchError(this.handleError<Locadora>('getLocadora'))
+      );
+  }
+
   addLocadora(locadora): Observable<Locadora> {
-    const url = apiURL;
+    const url = apiURL + "/Locadora";
     return this.http.post<Locadora>(url, locadora, httpOptions).pipe(
       catchError(this.handleError<Locadora>('addLocadora'))
     );
   }
 
-  deleteLocadora(locadora): Observable<Locadora> {
-    const url = apiURL + "/" + locadora.id;
+  deleteLocadora(id): Observable<Locadora> {
+    const url = apiURL + "/Locadora/" + id;
     return this.http.delete<Locadora>(url, httpOptions).pipe(
       catchError(this.handleError<Locadora>('deleteLocadora'))
     );
   }
 
   editLocadora(id, locadora): Observable<Locadora> {
-    const url = apiURL + "/" + id;
+    locadora.id = id;
+    const url = apiURL + "/Locadora/" + id;
     return this.http.put<Locadora>(url, locadora, httpOptions).pipe(
       catchError(this.handleError<Locadora>('editLocadora'))
     );

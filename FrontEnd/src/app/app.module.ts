@@ -27,6 +27,10 @@ import { Autenticacao } from './models/autenticacao';
 import { LoginComponent } from './components/login/login.component';
 import { AlertComponent } from './components/alert/alert.component';
 import { HomeComponent } from './components/home/home.component';
+import { NavBarComponent } from './components/layout/nav-bar/nav-bar.component';
+import { LocadorasComponent } from './components/locadoras/locadoras.component';
+import { LocadoraCadastroComponent } from './components/locadora-cadastro/locadora-cadastro.component';
+import { LocadoraEdicaoComponent } from './components/locadora-edicao/locadora-edicao.component';
 
 
 @NgModule({
@@ -38,7 +42,11 @@ import { HomeComponent } from './components/home/home.component';
     ClienteEdicaoComponent,
     LoginComponent,
     AlertComponent,
-    HomeComponent
+    HomeComponent,
+    NavBarComponent,
+    LocadorasComponent,
+    LocadoraCadastroComponent,
+    LocadoraEdicaoComponent
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,9 @@ import { ClienteEdicaoComponent } from './components/cliente-edicao/cliente-edic
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './helpers/auth-guard';
 import { HomeComponent } from './components/home/home.component';
+import { LocadorasComponent } from './components/locadoras/locadoras.component';
+import { LocadoraCadastroComponent } from './components/locadora-cadastro/locadora-cadastro.component';
+import { LocadoraEdicaoComponent } from './components/locadora-edicao/locadora-edicao.component';
 
 
 const routes: Routes = [
@@ -14,6 +17,9 @@ const routes: Routes = [
   { path:'cadastro-cliente', canActivate: [AuthGuard],component:ClienteCadastroComponent },
   { path: 'edita-cliente/:id', canActivate: [AuthGuard], component: ClienteEdicaoComponent },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
+  { path: 'locadoras', canActivate: [AuthGuard], component:LocadorasComponent },
+  { path: 'cadastro-locadora', canActivate: [AuthGuard], component:LocadoraCadastroComponent },
+  { path: 'edita-locadora/:id', canActivate: [AuthGuard], component:LocadoraEdicaoComponent },
 
   { path:'', component: HomeComponent, pathMatch: 'full'}
 ];

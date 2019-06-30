@@ -2,6 +2,11 @@ table{
   width: 100%;
 }
 
+th{
+  background-color: #673ab7;
+  color: white;
+}
+
 .bottom-btn{
   text-align: center;
 }

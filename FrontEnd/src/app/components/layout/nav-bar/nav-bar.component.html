@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+    <span>DSWT3</span>
+    <span class="example-spacer"></span>
+    <ng-template [ngIf]="loggedIn">                
+        <button mat-button color="link" (click)="r2('/clientes')">Clientes</button>
+        <button mat-button color="link" (click)="r2('/locadoras')">Locadoras</button>
+        <button mat-button  (click)="logout()">Sair</button>
+    </ng-template>
+
+    <ng-template [ngIf]="showLogin">
+        <button mat-flat-button color="accent" style="color: white" (click)="r2('/login')">Entrar</button>
+    </ng-template>
+</mat-toolbar>

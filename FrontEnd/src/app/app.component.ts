@@ -9,27 +9,4 @@ import { JwtService } from './services/jwt.service';
 })
 export class AppComponent {
   title = 'T3DSW';
-
-  constructor(private jwtService: JwtService, private router: Router) {}
-
-  logout() {
-    this.jwtService.logout();
-    this.router.navigate(['/login']);
-  }
-
-  r2(destination: String) {
-    this.router.navigate([destination])
-  }
-
-  
-  public get showLogin(): boolean {console.log(this.router.url)
-    return !this.loggedIn && !this.inLogin;
-  }
-
-  public get loggedIn(): boolean {
-    return localStorage.getItem('authentication') !== null;
-  }
-  public get inLogin(): boolean {
-    return this.router.url.startsWith('/login');
-  }
 }

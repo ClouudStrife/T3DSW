@@ -1,24 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<mat-toolbar color="primary">
-  <h3 class="banner" (click)="r2('/')">T3 DSW</h3>
-  <div class="links">
-    <ng-template [ngIf]="loggedIn">
-      <mat-card-actions>
-        <button mat-button color="link" (click)="r2('/clientes')">Clientes</button>
-      </mat-card-actions>
-      <mat-card-actions>
-        <button mat-flat-button color="warn"  (click)="logout()">Sair</button>
-      </mat-card-actions>
-    </ng-template>
-
-    <ng-template [ngIf]="showLogin">
-      <mat-card-actions>
-        <button mat-flat-button color="accent" style="color: white" (click)="r2('/login')">Entrar</button>
-      </mat-card-actions>
-    </ng-template>
-  </div>
+<app-nav-bar></app-nav-bar>
+<mat-toolbar color="secondary">
+    <span>Título da página</span>
 </mat-toolbar>
-
 <div class="alert-box">
     <app-alert></app-alert>
 </div>
