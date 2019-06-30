@@ -32,6 +32,8 @@ import { NavBarComponent } from './components/layout/nav-bar/nav-bar.component';
 import { LocadorasComponent } from './components/locadoras/locadoras.component';
 import { LocadoraCadastroComponent } from './components/locadora-cadastro/locadora-cadastro.component';
 import { LocadoraEdicaoComponent } from './components/locadora-edicao/locadora-edicao.component';
+import { LocacaoCadastroComponent } from './components/locacao-cadastro/locacao-cadastro.component';
+import { LocacoesComponent } from './components/locacoes/locacoes.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { LocadoraEdicaoComponent } from './components/locadora-edicao/locadora-e
     NavBarComponent,
     LocadorasComponent,
     LocadoraCadastroComponent,
-    LocadoraEdicaoComponent
+    LocadoraEdicaoComponent,
+    LocacaoCadastroComponent,
+    LocacoesComponent
   ],
   imports: [
     BrowserModule,
