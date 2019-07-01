@@ -1,14 +1,14 @@
-<mat-card class="example-card mat-elevation-z0">
+<mat-card class="example-card mat-elevation-z2">
   <form class="example-form" action="login()">
     <mat-card-header>
-      <mat-card-title>Login</mat-card-title>
+      <mat-card-title>Efetue o Login</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <table class="login-box" cellspacing="0">
         <tr>
           <td>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="CPF" [(ngModel)]="cpf" name="cpf" required>
+              <input matInput placeholder="Email" [(ngModel)]="user" name="user" required>
             </mat-form-field>
           </td>
         </tr>
@@ -23,7 +23,7 @@
       <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>
     <mat-card-actions class="login-box">
-      <button mat-raised-button (click)="login()" color="primary">ENTRAR</button>
+      <button mat-raised-button (click)="login()" color="primary">Entrar</button>
     </mat-card-actions>
   </form>
 </mat-card>

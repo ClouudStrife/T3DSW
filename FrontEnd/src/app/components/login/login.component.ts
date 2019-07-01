@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     private jwtService: JwtService,
     private alertService: AlertService) { }
 
-  cpf: string;
+  user: string;
   senha: string;
 
   ngOnInit() {
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    this.jwtService.login(this.cpf, this.senha).subscribe(
+    this.jwtService.login(this.user, this.senha).subscribe(
       res => {
         this.router.navigate([this.returnUrl]);
       },

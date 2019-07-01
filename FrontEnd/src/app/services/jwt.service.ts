@@ -19,6 +19,7 @@ export class JwtService {
         throw res
 
         res.when = new Date();
+        console.log(res);
         localStorage.setItem('authentication', JSON.stringify(res));
       }));
   }

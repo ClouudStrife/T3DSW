@@ -9,6 +9,15 @@
 }
 
 .login-box{
-    margin: auto;
-    margin-top: 0%;
+    width: 100%;
+    text-align: center;
+}
+
+.example-full-width{
+    width: 80%;
+}
+
+mat-card-content{
+    padding: 1rem;
+    margin-bottom: 0;
 }
