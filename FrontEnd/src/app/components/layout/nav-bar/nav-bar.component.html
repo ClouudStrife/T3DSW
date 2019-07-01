@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
     <span>DSWT3</span>
-    <span class="example-spacer"></span>
+    <span class="example-spacer"></span>   
+    <button mat-button color="link" (click)="r2('/cadastro-locacao')">Alugar</button>   
+
     <ng-template [ngIf]="loggedIn">                
         <button mat-button color="link" (click)="r2('/clientes')">Clientes</button>
         <button mat-button color="link" (click)="r2('/locadoras')">Locadoras</button>

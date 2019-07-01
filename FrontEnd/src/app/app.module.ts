@@ -22,8 +22,13 @@ import {
   MatCardModule,
   MatFormFieldModule,
   MatToolbarModule,
-  MatGridListModule } from "@angular/material";
+  MatGridListModule,
+  MatStepperModule,
+  MatDatepickerModule,
+  MatNativeDateModule  } from "@angular/material";
 import { MatSelectModule } from '@angular/material/select';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { Autenticacao } from './models/autenticacao';
 import { LoginComponent } from './components/login/login.component';
 import { AlertComponent } from './components/alert/alert.component';
@@ -69,9 +74,13 @@ import { LocacoesComponent } from './components/locacoes/locacoes.component';
     MatButtonModule,
     MatCardModule,
     MatSelectModule,
+    MatStepperModule,
     MatFormFieldModule,
     MatToolbarModule,
     MatGridListModule,
+    FlexLayoutModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter() {
@@ -84,7 +93,7 @@ import { LocacoesComponent } from './components/locacoes/locacoes.component';
     })
 
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
