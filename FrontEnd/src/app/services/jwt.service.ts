@@ -12,7 +12,7 @@ export class JwtService {
   constructor(private httpClient: HttpClient) { }
 
   login(documento: string, senha: string) {
-    const url = 'http://localhost:8080/login';
+    const url = 'http://localhost:8080/api/login';
     return this.httpClient.post<Autenticacao>(url, { documento, senha }).pipe(tap(res => {
       
       if (JSON.parse(JSON.stringify(res))['erro'] === true)
