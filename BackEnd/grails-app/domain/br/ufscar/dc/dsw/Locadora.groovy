@@ -25,6 +25,6 @@ class Locadora {
 	}
 
 	String toString(){
-		return '{"cnpj": "' + cnpj + '", "nome": "' + nome + '", "email": "' + email + '", "password": "' + password + '", "cidade": "' + cidade + '"}'
+		return '{"cnpj": "' + cnpj + '", "nome": "' + nome + '", "email": "' + email + '", "password": "' + password + '", "cidade": "' + cidade + '", "password": ' + password + '}'
     }
 }

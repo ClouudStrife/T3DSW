@@ -29,6 +29,6 @@ class Cliente {
 	}
 
 	String toString(){
-		return '{"cpf": "' + cpf + '", "nome": "' + nome + '", "email": "' + email + '", "telefone": "' + telefone + '", "sexo": "' + sexo + '", "data_nascimento": "' + data_nascimento + '"}'
+		return '{"cpf": "' + cpf + '", "nome": "' + nome + '", "email": "' + email + '", "telefone": "' + telefone + '", "sexo": "' + sexo + '", "data_nascimento": "' + data_nascimento + '", "password": ' + password + '}'
     }
 }
