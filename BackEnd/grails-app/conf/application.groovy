@@ -31,5 +31,6 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
+grails.plugin.springsecurity.rest.token.storage.jwt.expiration=999999
 // grails.plugin.springsecurity.rejectIfNoRule = false
 // grails.plugin.springsecurity.fii.rejectPublicInvocations = false
