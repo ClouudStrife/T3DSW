@@ -3,10 +3,11 @@ package br.ufscar.dc.dsw
 import grails.rest.*
 
 @Resource(readOnly = false, formats = ['json', 'xml'])
-class Locadora extends User {
+class Locadora {
 	String cnpj
 	String nome
 	String email
+	String username
 	String password
 	String cidade
 
@@ -17,11 +18,13 @@ class Locadora extends User {
 		this.password = p;
 		this.username = c; //login por cnpj
 		this.cidade = ci;
-		save()
-		UserRole.create(this, Role.get(3), true)
+		
+		def us = new User(username: c, password: p);
+		us.save();
+		UserRole.create(us, Role.get(3), true);
 	}
 
 	String toString(){
 		return '{"cnpj": "' + cnpj + '", "nome": "' + nome + '", "email": "' + email + '", "password": "' + password + '", "cidade": "' + cidade + '"}'
-    }	
+    }
 }
