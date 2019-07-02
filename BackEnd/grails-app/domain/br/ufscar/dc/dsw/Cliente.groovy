@@ -8,7 +8,6 @@ class Cliente {
 	String nome
 	String email
 	String telefone
-	String username
 	String password
 	String sexo
 	String data_nascimento
@@ -17,13 +16,16 @@ class Cliente {
 		this.cpf = c;
 		this.nome = n;
 		this.email = e;
-		this.username = c; // login por cpf
 		this.telefone = t;
 		this.password = p;
 		this.sexo = s;
 		this.data_nascimento = d;
 
-		User us = new User(username: c, password: p);
+		createUser(c, p);
+	}
+
+	def createUser(String u, String p) {
+		User us = new User(username: u, password: p);
 		us.save();
 		UserRole.create(us, Role.get(2), true);
 	}

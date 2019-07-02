@@ -12,4 +12,9 @@ class ClienteController extends RestfulController {
         super(Cliente)
     }
 
+	def save(Cliente c) {
+		super.save();
+		c.createUser(c.cpf, c.password);
+	}
+
 }

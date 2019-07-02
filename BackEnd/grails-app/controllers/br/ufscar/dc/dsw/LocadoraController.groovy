@@ -11,4 +11,9 @@ class LocadoraController extends RestfulController {
     LocadoraController() {
         super(Locadora)
     }
+
+	def save(Locadora c) {
+		super.save();
+		c.createUser(c.cnpj, c.password);
+	}
 }

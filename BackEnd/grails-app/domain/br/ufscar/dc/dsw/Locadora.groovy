@@ -7,7 +7,6 @@ class Locadora {
 	String cnpj
 	String nome
 	String email
-	String username
 	String password
 	String cidade
 
@@ -16,10 +15,13 @@ class Locadora {
 		this.nome = n;
 		this.email = e;
 		this.password = p;
-		this.username = c; //login por cnpj
 		this.cidade = ci;
-		
-		def us = new User(username: c, password: p);
+
+		createUser(c, p);
+	}
+
+	def createUser(String u, String p) {
+		User us = new User(username: u, password: p);
 		us.save();
 		UserRole.create(us, Role.get(3), true);
 	}
