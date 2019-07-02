@@ -7,50 +7,40 @@
           <mat-grid-tile>
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Nome" formControlName="nome" [errorStateMatcher]="matcher" />
-              <mat-error>
-                <span *ngIf="!clienteForm.get('nome').valid && clienteForm.get('nome').touched">
-                  Nome é um campo obrigatório !
-                </span>
+              <mat-error *ngFor="let validation of validation_messages.nome">
+                <mat-error class="error-message" *ngIf="clienteForm.get('nome').hasError(validation.type) && (clienteForm.get('nome').dirty || clienteForm.get('nome').touched)">{{validation.message}}</mat-error>
               </mat-error>
             </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher" />
-              <mat-error>
-                <span *ngIf="!clienteForm.get('email').valid && clienteForm.get('email').touched">
-                  Email é um campo obrigatório !
-                </span>
+              <mat-error *ngFor="let validation of validation_messages.email">
+                <mat-error class="error-message" *ngIf="clienteForm.get('email').hasError(validation.type) && (clienteForm.get('email').dirty || clienteForm.get('email').touched)">{{validation.message}}</mat-error>
               </mat-error>
             </mat-form-field>
           </mat-grid-tile>
         </mat-grid-list>
         <mat-form-field class="example-full-width">
           <input type="password" matInput placeholder="Senha" formControlName="senha" [errorStateMatcher]="matcher"/>
-          <mat-error>
-            <span *ngIf="!clienteForm.get('senha').valid && clienteForm.get('senha').touched">
-              Senha é um campo obrigatório !
-            </span>
+          <mat-error *ngFor="let validation of validation_messages.senha">
+            <mat-error class="error-message" *ngIf="clienteForm.get('senha').hasError(validation.type) && (clienteForm.get('senha').dirty || clienteForm.get('senha').touched)">{{validation.message}}</mat-error>
           </mat-error>
         </mat-form-field>
         <mat-grid-list cols="2" rowHeight="80px">
           <mat-grid-tile>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="CPF" formControlName="cpf" [errorStateMatcher]="matcher" />
-              <mat-error>
-                <span *ngIf="!clienteForm.get('cpf').valid && clienteForm.get('cpf').touched">
-                  CPF é um campo obrigatório !
-                </span>
+              <input matInput placeholder="CPF" formControlName="cpf" [errorStateMatcher]="matcher" [dropSpecialCharacters]="false" mask="000.000.000-00" />
+              <mat-error *ngFor="let validation of validation_messages.cpf">
+                <mat-error class="error-message" *ngIf="clienteForm.get('cpf').hasError(validation.type) && (clienteForm.get('cpf').dirty || clienteForm.get('cpf').touched)">{{validation.message}}</mat-error>
               </mat-error>
             </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="Telefone" formControlName="telefone" [errorStateMatcher]="matcher" />
-              <mat-error>
-                <span *ngIf="!clienteForm.get('telefone').valid && clienteForm.get('telefone').touched">
-                  Telefone é um campo obrigatório !
-                </span>
+              <input matInput placeholder="Telefone" formControlName="telefone" [errorStateMatcher]="matcher" [dropSpecialCharacters]="false" mask="(00) 00000-0000" />
+              <mat-error *ngFor="let validation of validation_messages.telefone">
+                <mat-error class="error-message" *ngIf="clienteForm.get('telefone').hasError(validation.type) && (clienteForm.get('telefone').dirty || clienteForm.get('telefone').touched)">{{validation.message}}</mat-error>
               </mat-error>
             </mat-form-field>
           </mat-grid-tile>
@@ -59,21 +49,17 @@
           <mat-grid-tile>
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Data de Nascimento" formControlName="data_nascimento"
-                [errorStateMatcher]="matcher" />
-              <mat-error>
-                <span *ngIf="!clienteForm.get('data_nascimento').valid && clienteForm.get('data_nascimento').touched">
-                  Data de nascimento é um campo obrigatório !
-                </span>
-              </mat-error>
+                [errorStateMatcher]="matcher" [dropSpecialCharacters]="false" mask="00/00/0000" />
+                <mat-error *ngFor="let validation of validation_messages.data_nascimento">
+                  <mat-error class="error-message" *ngIf="clienteForm.get('data_nascimento').hasError(validation.type) && (clienteForm.get('data_nascimento').dirty || clienteForm.get('data_nascimento').touched)">{{validation.message}}</mat-error>
+                </mat-error>
             </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Sexo" formControlName="sexo" [errorStateMatcher]="matcher" />
-              <mat-error>
-                <span *ngIf="!clienteForm.get('sexo').valid && clienteForm.get('sexo').touched">
-                  Sexo é um campo obrigatório !
-                </span>
+              <mat-error *ngFor="let validation of validation_messages.sexo">
+                <mat-error class="error-message" *ngIf="clienteForm.get('sexo').hasError(validation.type) && (clienteForm.get('sexo').dirty || clienteForm.get('sexo').touched)">{{validation.message}}</mat-error>
               </mat-error>
             </mat-form-field>
           </mat-grid-tile>
