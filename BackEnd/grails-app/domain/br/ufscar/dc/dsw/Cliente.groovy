@@ -29,3 +29,4 @@ class Cliente {
 		us.save();
 		UserRole.create(us, Role.get(2), true);
 	}
+}
