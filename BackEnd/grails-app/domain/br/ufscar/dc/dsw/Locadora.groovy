@@ -25,8 +25,4 @@ class Locadora {
 		us.save();
 		UserRole.create(us, Role.get(3), true);
 	}
-
-	String toString(){
-		return '{"cnpj": "' + cnpj + '", "nome": "' + nome + '", "email": "' + email + '", "password": "' + password + '", "cidade": "' + cidade + '", "password": ' + password + '}'
-    }
 }

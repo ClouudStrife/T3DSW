@@ -29,8 +29,3 @@ class Cliente {
 		us.save();
 		UserRole.create(us, Role.get(2), true);
 	}
-
-	String toString(){
-		return '{"cpf": "' + cpf + '", "nome": "' + nome + '", "email": "' + email + '", "telefone": "' + telefone + '", "sexo": "' + sexo + '", "data_nascimento": "' + data_nascimento + '", "password": ' + password + '}'
-    }
-}
