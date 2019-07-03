@@ -22,9 +22,9 @@
           </mat-grid-tile>
         </mat-grid-list>
         <mat-form-field class="example-full-width">
-          <input type="password" matInput placeholder="Senha" formControlName="senha" [errorStateMatcher]="matcher"/>
-          <mat-error *ngFor="let validation of validation_messages.senha">
-            <mat-error class="error-message" *ngIf="clienteForm.get('senha').hasError(validation.type) && (clienteForm.get('senha').dirty || clienteForm.get('senha').touched)">{{validation.message}}</mat-error>
+          <input type="password" matInput placeholder="Senha" formControlName="password" [errorStateMatcher]="matcher"/>
+          <mat-error *ngFor="let validation of validation_messages.password">
+            <mat-error class="error-message" *ngIf="clienteForm.get('password').hasError(validation.type) && (clienteForm.get('password').dirty || clienteForm.get('password').touched)">{{validation.message}}</mat-error>
           </mat-error>
         </mat-form-field>
         <mat-grid-list cols="2" rowHeight="80px">

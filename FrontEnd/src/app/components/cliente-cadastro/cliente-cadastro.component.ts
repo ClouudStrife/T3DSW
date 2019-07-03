@@ -26,7 +26,7 @@ export class ClienteCadastroComponent implements OnInit {
       { type: 'required', message: 'Email é um campo obrigatório !' },
       { type: 'pattern', message: 'Entre com um email válido !' }
     ],
-    senha: [
+    password: [
       { type: 'required', message: 'Senha é um campo obrigatório !' },
       { type: 'minlength', message: 'Senha deve ter pelo menos 5 caracteres!' },
       { type: 'pattern', message: 'Senha deve conter 1 letra maiúscula, 1 letra minúscula e 1 número!' }
@@ -62,7 +62,7 @@ export class ClienteCadastroComponent implements OnInit {
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
       ])),
-      senha: new FormControl('', Validators.compose([
+      password: new FormControl('', Validators.compose([
         Validators.minLength(5),
         Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).*$'),
         Validators.required,
