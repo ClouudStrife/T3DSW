@@ -7,20 +7,16 @@
                 <mat-grid-tile>
                     <mat-form-field class="example-full-width">
                         <input matInput placeholder="Nome" formControlName="nome" [errorStateMatcher]="matcher" />
-                        <mat-error>
-                            <span *ngIf="!locadoraForm.get('nome').valid && locadoraForm.get('nome').touched">
-                                Nome é um campo obrigatório !
-                            </span>
+                        <mat-error *ngFor="let validation of validation_messages.nome">
+                          <mat-error class="error-message" *ngIf="locadoraForm.get('nome').hasError(validation.type) && (locadoraForm.get('nome').dirty || locadoraForm.get('nome').touched)">{{validation.message}}</mat-error>
                         </mat-error>
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field class="example-full-width">
                         <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="matcher" />
-                        <mat-error>
-                            <span *ngIf="!locadoraForm.get('email').valid && locadoraForm.get('email').touched">
-                                Email é um campo obrigatório !
-                            </span>
+                        <mat-error *ngFor="let validation of validation_messages.email">
+                          <mat-error class="error-message" *ngIf="locadoraForm.get('email').hasError(validation.type) && (locadoraForm.get('email').dirty || locadoraForm.get('email').touched)">{{validation.message}}</mat-error>
                         </mat-error>
                     </mat-form-field>
                 </mat-grid-tile>
@@ -28,30 +24,24 @@
             <mat-form-field class="example-full-width">
                 <input type="password" matInput placeholder="Senha" formControlName="senha"
                     [errorStateMatcher]="matcher" />
-                <mat-error>
-                    <span *ngIf="!locadoraForm.get('senha').valid && locadoraForm.get('senha').touched">
-                        Senha é um campo obrigatório !
-                    </span>
-                </mat-error>
+                    <mat-error *ngFor="let validation of validation_messages.senha">
+                      <mat-error class="error-message" *ngIf="locadoraForm.get('senha').hasError(validation.type) && (locadoraForm.get('senha').dirty || locadoraForm.get('senha').touched)">{{validation.message}}</mat-error>
+                    </mat-error>
             </mat-form-field>
             <mat-grid-list cols="2" rowHeight="80px">
                 <mat-grid-tile>
                     <mat-form-field class="example-full-width">
-                        <input matInput placeholder="CNPJ" formControlName="cnpj" [errorStateMatcher]="matcher" />
-                        <mat-error>
-                            <span *ngIf="!locadoraForm.get('cnpj').valid && locadoraForm.get('cnpj').touched">
-                                CNPJ é um campo obrigatório !
-                            </span>
+                        <input matInput placeholder="CNPJ" formControlName="cnpj" [errorStateMatcher]="matcher" [dropSpecialCharacters]="false" mask="00.000.000/0000-00" />
+                        <mat-error *ngFor="let validation of validation_messages.cnpj">
+                          <mat-error class="error-message" *ngIf="locadoraForm.get('cnpj').hasError(validation.type) && (locadoraForm.get('cnpj').dirty || locadoraForm.get('cnpj').touched)">{{validation.message}}</mat-error>
                         </mat-error>
                     </mat-form-field>
                 </mat-grid-tile>
                 <mat-grid-tile>
                     <mat-form-field class="example-full-width">
                         <input matInput placeholder="Cidade" formControlName="cidade" [errorStateMatcher]="matcher" />
-                        <mat-error>
-                            <span *ngIf="!locadoraForm.get('cidade').valid && locadoraForm.get('cidade').touched">
-                                Cidade é um campo obrigatório !
-                            </span>
+                        <mat-error *ngFor="let validation of validation_messages.cidade">
+                          <mat-error class="error-message" *ngIf="locadoraForm.get('cidade').hasError(validation.type) && (locadoraForm.get('cidade').dirty || locadoraForm.get('cidade').touched)">{{validation.message}}</mat-error>
                         </mat-error>
                     </mat-form-field>
                 </mat-grid-tile>
