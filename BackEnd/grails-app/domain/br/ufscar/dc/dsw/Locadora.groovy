@@ -7,10 +7,22 @@ class Locadora {
 	String cnpj
 	String nome
 	String email
-	String senha
+	String password
 	String cidade
 
-	String toString(){
-		return '{"cnpj": "' + cnpj + '", "nome": "' + nome + '", "email": "' + email + '", "senha": "' + senha + '", "cidade": "' + cidade + '", "papel": "locadora"}'
-    }	
+	Locadora(String c, String n, String e, String p, String ci) {
+		this.cnpj = c;
+		this.nome = n;
+		this.email = e;
+		this.password = p;
+		this.cidade = ci;
+
+		createUser(c, p);
+	}
+
+	def createUser(String u, String p) {
+		User us = new User(username: u, password: p);
+		us.save();
+		UserRole.create(us, Role.get(3), true);
+	}
 }

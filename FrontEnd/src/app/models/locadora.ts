@@ -5,6 +5,6 @@ export class Locadora extends Usuario {
     nome:String;
     cnpj:String;
     email:String;
-    senha:String;
+    password:String;
     cidade:String;
 }

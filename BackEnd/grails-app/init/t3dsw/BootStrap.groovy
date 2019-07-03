@@ -6,9 +6,15 @@ class BootStrap {
 
     def init = { servletContext ->
 
+        Role adminRole = new Role(authority: 'ROLE_ADMIN').save()
+        Role clienteRole = new Role(authority: 'ROLE_CLIENTE').save()
+        Role locadoraRole = new Role(authority: 'ROLE_LOCADORA').save()
+
         new File('clientes.txt').eachLine { line ->
             def tokens = line.tokenize(",")
-            def cliente = new Cliente(cpf: tokens[0], nome: tokens[1], email: tokens[2], senha: tokens[3], telefone: tokens[4], sexo: tokens[5], data_nascimento: tokens[6]);
+			
+			def cliente = new Cliente(tokens[0], tokens[1], tokens[2], tokens[3], tokens[2], tokens[4], tokens[5], tokens[6]);
+
             cliente.save flush: true
             if (cliente.hasErrors()) {
                 println cliente.errors
@@ -17,17 +23,20 @@ class BootStrap {
 
         new File('locadora.txt').eachLine { line ->
             def tokens = line.tokenize(",")
-            def locadora = new Locadora(cnpj: tokens[0], nome: tokens[1], email: tokens[2], senha: tokens[3], cidade: tokens[4]);
+
+            def locadora = new Locadora(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4]);
+
             locadora.save flush: true
             if (locadora.hasErrors()) {
                 println locadora.errors
             }
         }
+
+        User user = new User(username: "admin@admin", password: "admin").save()
+        UserRole.create(user, adminRole, true)
+
     }
 
     def destroy = {
-		// Cliente.getAll().each { cliente ->
-		// 	println cliente
-		// }
     }
 }

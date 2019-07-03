@@ -5,7 +5,7 @@ export class Cliente extends Usuario {
     nome:String;
     cpf:String;
     email:String;
-    senha:String;
+    password:String;
     telefone:String;
     sexo:String;
     data_nascimento:String;
