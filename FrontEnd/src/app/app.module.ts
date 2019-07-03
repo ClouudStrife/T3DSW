@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { LocadoraEdicaoComponent } from './components/locadora-edicao/locadora-e
 import { LocacaoCadastroComponent } from './components/locacao-cadastro/locacao-cadastro.component';
 import { LocacoesComponent } from './components/locacoes/locacoes.component';
 
+export let options: Partial<IConfig> | (() => Partial<IConfig>);
 
 @NgModule({
   declarations: [
@@ -59,6 +61,7 @@ import { LocacoesComponent } from './components/locacoes/locacoes.component';
     LocacoesComponent
   ],
   imports: [
+    NgxMaskModule.forRoot(options),
     BrowserModule,
     FormsModule,
     HttpClientModule,
