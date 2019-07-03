@@ -25,7 +25,7 @@ export class ClienteCadastroComponent implements OnInit {
       nome: [null, Validators.required],
       cpf: [null, Validators.required],
       email: [null, Validators.required],
-      senha: [null, Validators.required],
+      password: [null, Validators.required],
       telefone: [null, Validators.required],
       sexo: [null, Validators.required],
       data_nascimento: [null, Validators.required]

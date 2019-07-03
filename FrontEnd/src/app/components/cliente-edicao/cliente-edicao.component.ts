@@ -24,7 +24,7 @@ export class ClienteEdicaoComponent implements OnInit {
       nome: [null, Validators.required],
       cpf: [null, Validators.required],
       email: [null, Validators.required],
-      senha: [null, Validators.required],
+      password: [null, Validators.required],
       telefone: [null, Validators.required],
       sexo: [null, Validators.required],
       data_nascimento: [null, Validators.required]
@@ -40,7 +40,7 @@ export class ClienteEdicaoComponent implements OnInit {
     this.clienteForm.setValue({
       nome: cliente.nome,
       email: cliente.email,
-      senha: cliente.senha,
+      password: cliente.password,
       cpf: cliente.cpf,
       telefone: cliente.telefone,
       sexo: cliente.sexo,

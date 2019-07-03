@@ -11,9 +11,9 @@ export class JwtService {
 
   constructor(private httpClient: HttpClient) { }
 
-  login(documento: string, senha: string) {
+  login(username: string, password: string) {
     const url = 'http://localhost:8080/api/login';
-    return this.httpClient.post<Autenticacao>(url, { documento, senha }).pipe(tap(res => {
+    return this.httpClient.post<Autenticacao>(url, { username, password }).pipe(tap(res => {
       
       if (JSON.parse(JSON.stringify(res))['erro'] === true)
         throw res
@@ -21,11 +21,15 @@ export class JwtService {
         res.when = new Date();
         console.log(res);
         localStorage.setItem('authentication', JSON.stringify(res));
+        localStorage.setItem('access_token', res.access_token);
+        localStorage.setItem('refresh_token', res.refresh_token);
       }));
   }
 
   logout() {
     localStorage.removeItem('authentication');
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
   }
 
   getAuthentication(): Observable<Autenticacao> {

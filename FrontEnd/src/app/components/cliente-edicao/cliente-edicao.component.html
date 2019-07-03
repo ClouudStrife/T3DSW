@@ -26,9 +26,9 @@
           </mat-grid-tile>
         </mat-grid-list>
         <mat-form-field class="example-full-width">
-          <input type="password" matInput placeholder="Senha" formControlName="senha" [errorStateMatcher]="matcher"/>
+          <input type="password" matInput placeholder="Senha" formControlName="password" [errorStateMatcher]="matcher"/>
           <mat-error>
-            <span *ngIf="!clienteForm.get('senha').valid && clienteForm.get('senha').touched">
+            <span *ngIf="!clienteForm.get('password').valid && clienteForm.get('password').touched">
               Senha é um campo obrigatório !
             </span>
           </mat-error>

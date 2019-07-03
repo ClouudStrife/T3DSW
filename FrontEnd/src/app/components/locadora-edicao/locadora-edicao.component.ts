@@ -23,7 +23,7 @@ export class LocadoraEdicaoComponent implements OnInit {
       nome: [null, Validators.required],
       cnpj: [null, Validators.required],
       email: [null, Validators.required],
-      senha: [null, Validators.required],
+      password: [null, Validators.required],
       cidade: [null, Validators.required],
     });
 
@@ -37,7 +37,7 @@ export class LocadoraEdicaoComponent implements OnInit {
     this.locadoraForm.setValue({
       nome: locadora.nome,
       email: locadora.email,
-      senha: locadora.senha,
+      password: locadora.password,
       cnpj: locadora.cnpj,
       cidade: locadora.cidade,
     });  
