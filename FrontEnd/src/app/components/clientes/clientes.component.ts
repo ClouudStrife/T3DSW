@@ -3,7 +3,7 @@ import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Cliente } from '../../models/cliente';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
@@ -12,8 +12,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   styleUrls: ['./clientes.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ],
@@ -24,26 +24,25 @@ export class ClientesComponent implements OnInit {
   clientes: Cliente[] = [];
   isLoading = true;
 
-  constructor(private api:ApiService,  private router: Router) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getData();
   }
 
-  async getData(){
+  async getData() {
     this.clientes = await this.api.getClientes().toPromise();
     this.isLoading = false;
   }
 
-  deleteCliente(id) { 
+  deleteCliente(id) {
     this.api.deleteCliente(id)
       .subscribe(res => {
-          console.log(res);
-          this.getData();
-        }, (err) => {
-          console.log(err);
-        }
+        this.getData();
+      }, (err) => {
+        console.error(err);
+      }
       );
   }
-  
+
 }

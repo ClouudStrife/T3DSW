@@ -45,9 +45,9 @@ export class LocacaoCadastroComponent implements OnInit {
     this.locacao.cnpjLocadora = this.locadoraCNPJ;
     this.api.addLocacao(this.locacao)
       .subscribe(res => {
-        console.log(res);
+        console.log('Locação adicionada:', res);
       }, (err) => {
-        console.log(err);    
+        console.error(err);    
       });    
   }
 

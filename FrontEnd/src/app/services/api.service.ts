@@ -57,7 +57,6 @@ export class ApiService {
 
   editCliente(id, cliente): Observable<Cliente> {
     cliente.id = id;
-    console.log(cliente);
     const url = apiURL + "/Cliente/" + id;
     return this.http.put<Cliente>(url, cliente, httpOptions).pipe(
       catchError(this.handleError<Cliente>('editCliente'))
@@ -65,7 +64,6 @@ export class ApiService {
   }
 
   deleteCliente(id): Observable<Cliente> {
-    console.log(id);
     const url = apiURL + "/Cliente/" + id;
     return this.http.delete<Cliente>(url, httpOptions).pipe(
       catchError(this.handleError<Cliente>('deleteCliente'))

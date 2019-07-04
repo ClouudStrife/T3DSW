@@ -3,7 +3,7 @@ import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Locadora } from '../../models/locadora';
-import {animate, state, style, transition, trigger} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-locadoras',
@@ -11,8 +11,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
   styleUrls: ['./locadoras.component.css'],
   animations: [
     trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
+      state('collapsed', style({ height: '0px', minHeight: '0' })),
+      state('expanded', style({ height: '*' })),
       transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
     ]),
   ]
@@ -23,25 +23,24 @@ export class LocadorasComponent implements OnInit {
   locadoras: Locadora[] = [];
   isLoading = true;
 
-  constructor(private api:ApiService,  private router: Router) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getData();
   }
 
-  async getData(){
+  async getData() {
     this.locadoras = await this.api.getLocadoras().toPromise();
     this.isLoading = false;
   }
 
-  deleteLocadora(id) { 
+  deleteLocadora(id) {
     this.api.deleteLocadora(id)
       .subscribe(res => {
-          console.log(res);
-          this.getData();
-        }, (err) => {
-          console.log(err);
-        }
+        this.getData();
+      }, (err) => {
+        console.error(err);
+      }
       );
   }
 

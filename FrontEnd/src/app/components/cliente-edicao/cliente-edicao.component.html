@@ -30,7 +30,7 @@
         <mat-grid-list cols="2" rowHeight="80px">
           <mat-grid-tile>
             <mat-form-field class="example-full-width">
-              <input matInput placeholder="CPF" formControlName="cpf" [errorStateMatcher]="matcher" [dropSpecialCharacters]="false" mask="000.000.000-00" />
+              <input matInput placeholder="CPF" formControlName="cpf" [errorStateMatcher]="matcher"  mask="000.000.000-00" />
               <mat-error *ngFor="let validation of validation_messages.cpf">
                 <mat-error class="error-message" *ngIf="clienteForm.get('cpf').hasError(validation.type) && (clienteForm.get('cpf').dirty || clienteForm.get('cpf').touched)">{{validation.message}}</mat-error>
               </mat-error>
