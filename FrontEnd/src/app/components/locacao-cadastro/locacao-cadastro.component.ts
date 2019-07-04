@@ -40,6 +40,7 @@ export class LocacaoCadastroComponent implements OnInit {
 
   alugar(form: NgForm){
     this.locacao = form.value;
+    this.locacao.data = new Date(this.locacao.data.toString()).toLocaleDateString()
     this.locacao.cpfCliente = this.cpfCliente;
     this.locacao.cnpjLocadora = this.locadoraCNPJ;
     this.api.addLocacao(this.locacao)

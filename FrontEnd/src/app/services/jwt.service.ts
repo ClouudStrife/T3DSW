@@ -21,7 +21,7 @@ export class JwtService {
         res.when = new Date();
         console.log(res);
         localStorage.setItem('authentication', JSON.stringify(res));
-        localStorage.setItem('user', JSON.stringify(res.username));
+        localStorage.setItem('user', res.username.toString());
         localStorage.setItem('Role', res.roles[0]);
         localStorage.setItem('access_token', res.access_token);
         localStorage.setItem('refresh_token', res.refresh_token);
