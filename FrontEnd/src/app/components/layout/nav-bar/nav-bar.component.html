@@ -1,11 +1,20 @@
 <mat-toolbar color="primary">
     <span>DSWT3</span>
     <span class="example-spacer"></span>   
-    <button mat-button color="link" (click)="r2('/cadastro-locacao')">Alugar</button>   
+    <ng-template [ngIf]="getRole()=='ROLE_CLIENTE'">
+        <button mat-button color="link" (click)="r2('/cadastro-locacao')">Alugar</button> 
+    </ng-template>  
 
-    <ng-template [ngIf]="loggedIn">                
+    <ng-template [ngIf]="getRole()=='ROLE_CLIENTE' || getRole()=='ROLE_LOCADORA'">
+        <button mat-button color="link" (click)="r2('/locacoes')">Locações</button>
+    </ng-template>  
+
+    <ng-template [ngIf]="loggedIn && getRole()=='ROLE_ADMIN'">                
         <button mat-button color="link" (click)="r2('/clientes')">Clientes</button>
         <button mat-button color="link" (click)="r2('/locadoras')">Locadoras</button>
+    </ng-template>
+
+    <ng-template [ngIf]="loggedIn">
         <button mat-button  (click)="logout()">Sair</button>
     </ng-template>
 
