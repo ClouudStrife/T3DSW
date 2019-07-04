@@ -113,7 +113,7 @@ export class ApiService {
 
   // Locacao
   getLocacoes(): Observable < Locacao[] > {
-    const url = apiURL;
+    const url = apiURL + "/Locacao";
     return this.http.get<Locacao[]>(url)
       .pipe(
         catchError(this.handleError('getLocacoes', []))
@@ -121,7 +121,7 @@ export class ApiService {
   }
 
   addLocacao(locacao): Observable<Locacao> {
-    const url = apiURL;
+    const url = apiURL + "/Locacao";
     return this.http.post<Locacao>(url, locacao, httpOptions).pipe(
       catchError(this.handleError<Locacao>('addLocacao'))
     );

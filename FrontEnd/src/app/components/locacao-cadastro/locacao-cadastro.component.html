@@ -28,7 +28,7 @@
                 <mat-card-header>
                     <mat-card-title>Escolha a data e hora</mat-card-title>
                 </mat-card-header>
-                <form [formGroup]="formLocacao" (ngSubmit)="alugar(formLocacao.value)">
+                <form [formGroup]="formLocacao" (ngSubmit)="alugar(formLocacao)">
                     <mat-form-field>
                         <input matInput [matDatepicker]="picker" placeholder="Escolha uma data" formControlName="data"
                             required>
@@ -45,11 +45,10 @@
             </mat-card>
         </mat-step>
         <mat-step>
-            <ng-template matStepLabel>Done</ng-template>
-            You are now done.
+            <ng-template matStepLabel>Feito</ng-template>
             <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
+                <p>Locação realizada com sucesso !</p>
+                <button mat-raised-button color="primary" (click)="r2Locacoes()">Ver locações</button>
             </div>
         </mat-step>
     </mat-horizontal-stepper>

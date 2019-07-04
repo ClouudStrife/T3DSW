@@ -30,6 +30,8 @@ export class ClienteCadastroComponent implements OnInit {
       sexo: [null, Validators.required],
       data_nascimento: [null, Validators.required]
     });
+
+  
   }
 
   onFormSubmit(form: NgForm) {

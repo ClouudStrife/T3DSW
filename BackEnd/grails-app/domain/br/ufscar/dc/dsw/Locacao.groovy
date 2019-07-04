@@ -8,4 +8,5 @@ class Locacao {
 	String cpfCliente
 	String cnpjLocadora
 	String data
+	String hora
 }

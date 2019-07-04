@@ -4,12 +4,7 @@ import { Locadora } from 'src/app/models/locadora';
 import { ApiService } from '../../services/api.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
-
-export interface Locacao{
-  cnpjLocadora: String
-  cpfCliente: String
-  dataHoraLocacao: String
-}
+import { Locacao } from 'src/app/models/locacao';
 
 @Component({
   selector: 'app-locacao-cadastro',
@@ -19,10 +14,12 @@ export interface Locacao{
 export class LocacaoCadastroComponent implements OnInit {
 
   locadoras: Locadora[] = [];
-  locacao: Locacao;
   formLocacao: FormGroup;
+  locadoraCNPJ:String;
+  cpfCliente:String;
+  locacao:Locacao;
 
-  constructor(private api:ApiService,  private formBuilder: FormBuilder) { }
+  constructor(private router: Router, private api:ApiService,  private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.getData();
@@ -34,16 +31,26 @@ export class LocacaoCadastroComponent implements OnInit {
 
   async getData(){
     this.locadoras = await this.api.getLocadoras().toPromise();
+    this.cpfCliente = localStorage.getItem('user');
   }
 
   selecionaLocadora(cnpj:String){
-
-    console.log(cnpj);
+    this.locadoraCNPJ = cnpj;
   }
 
   alugar(form: NgForm){
-    //this.locacao.dataHoraLocacao = form.value;
-    console.log(form);
+    this.locacao = form.value;
+    this.locacao.cpfCliente = this.cpfCliente;
+    this.locacao.cnpjLocadora = this.locadoraCNPJ;
+    this.api.addLocacao(this.locacao)
+      .subscribe(res => {
+        console.log(res);
+      }, (err) => {
+        console.log(err);    
+      });    
   }
 
+  r2Locacoes(){
+    this.router.navigate(['/locacoes']);
+  }
 }

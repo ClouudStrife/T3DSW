@@ -11,6 +11,7 @@ import { LocadorasComponent } from './components/locadoras/locadoras.component';
 import { LocadoraCadastroComponent } from './components/locadora-cadastro/locadora-cadastro.component';
 import { LocadoraEdicaoComponent } from './components/locadora-edicao/locadora-edicao.component';
 import { LocacaoCadastroComponent } from './components/locacao-cadastro/locacao-cadastro.component';
+import { LocacoesComponent } from './components/locacoes/locacoes.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'cadastro-locadora', canActivate: [AuthGuard], component:LocadoraCadastroComponent },
   { path: 'edita-locadora/:id', canActivate: [AuthGuard], component:LocadoraEdicaoComponent },
   { path: 'cadastro-locacao', component:LocacaoCadastroComponent },
+  { path: 'locacoes', component:LocacoesComponent },
 
   { path:'', component: HomeComponent, pathMatch: 'full'}
 ];

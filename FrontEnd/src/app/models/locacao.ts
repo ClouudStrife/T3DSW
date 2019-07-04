@@ -3,4 +3,5 @@ export class Locacao {
     cpfCliente:String;
     cnpjLocadora:String;
     data:String;
+    hora:String;
 }
