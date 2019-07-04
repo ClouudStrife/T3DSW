@@ -71,7 +71,7 @@ export class LocadoraCadastroComponent implements OnInit {
         this.isLoadingResults = false;
         this.router.navigate(['/locadoras']);
       }, (err) => {
-        console.log(err);
+        console.error(err);
         this.isLoadingResults = false;
       }); 
   }

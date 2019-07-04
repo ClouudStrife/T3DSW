@@ -82,7 +82,6 @@ export class ClienteEdicaoComponent implements OnInit {
       ])),
     });
 
-    console.log(this.route.snapshot.params['id']);
     this.getData(this.route.snapshot.params['id']);
   }
 
@@ -97,17 +96,16 @@ export class ClienteEdicaoComponent implements OnInit {
       telefone: cliente.telefone,
       sexo: cliente.sexo,
       data_nascimento: cliente.data_nascimento
-    });  
+    });
   }
 
   onFormSubmit(form: NgForm) {
     this.api.editCliente(this.idCliente, form)
       .subscribe(res => {
-        console.log(res);
         this.router.navigate(['/clientes']);
       }, (err) => {
-        console.log(err);
-      }); 
+        console.error(err);
+      });
   }
 
 }

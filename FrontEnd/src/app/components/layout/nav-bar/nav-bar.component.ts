@@ -22,7 +22,7 @@ export class NavBarComponent {
   }
 
   
-  public get showLogin(): boolean {console.log(this.router.url)
+  public get showLogin(): boolean {
     return !this.loggedIn && !this.inLogin;
   }
 

@@ -62,7 +62,6 @@ export class LocadoraEdicaoComponent implements OnInit {
       ])),
     });
 
-    console.log(this.route.snapshot.params['id']);
     this.getData(this.route.snapshot.params['id']);
   }
 
@@ -75,17 +74,16 @@ export class LocadoraEdicaoComponent implements OnInit {
       password: locadora.password,
       cnpj: locadora.cnpj,
       cidade: locadora.cidade,
-    });  
+    });
   }
 
   onFormSubmit(form: NgForm) {
     this.api.editLocadora(this.idLocadora, form)
       .subscribe(res => {
-        console.log(res);
         this.router.navigate(['/locadoras']);
       }, (err) => {
-        console.log(err);
-      }); 
+        console.error(err);
+      });
   }
 
 }

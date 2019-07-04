@@ -94,9 +94,9 @@ export class ClienteCadastroComponent implements OnInit {
         this.isLoadingResults = false;
         this.router.navigate(['/clientes']);
       }, (err) => {
-        console.log(err);
+        console.error(err);
         this.isLoadingResults = false;
-      }); 
+      });
   }
 
 }
