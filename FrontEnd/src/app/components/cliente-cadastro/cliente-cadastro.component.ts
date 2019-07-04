@@ -90,8 +90,7 @@ export class ClienteCadastroComponent implements OnInit {
     this.isLoadingResults = true;
     this.api.addCliente(form)
       .subscribe(res => {
-        let id = res['id'];
-        this.isLoadingResults = false;
+        console.log("Res backend = " + res);
         this.router.navigate(['/clientes']);
       }, (err) => {
         console.log(err);

@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.jwtService.login(this.user, this.senha).subscribe(
       res => {
-        this.router.navigate([this.returnUrl]);
+        window.location.href = '/';
       },
       error => {
         this.alertService.error('Usuário ou senha inválidos');

@@ -22,6 +22,7 @@ export class JwtService {
         console.log(res);
         localStorage.setItem('authentication', JSON.stringify(res));
         localStorage.setItem('user', JSON.stringify(res.username));
+        localStorage.setItem('Role', res.roles[0]);
         localStorage.setItem('access_token', res.access_token);
         localStorage.setItem('refresh_token', res.refresh_token);
       }));
@@ -32,6 +33,7 @@ export class JwtService {
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
     localStorage.removeItem('user');
+    localStorage.removeItem('Role');
   }
 
   getAuthentication(): Observable<Autenticacao> {

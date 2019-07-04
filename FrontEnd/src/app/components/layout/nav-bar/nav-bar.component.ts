@@ -10,6 +10,8 @@ import { JwtService } from '../../../services/jwt.service';
 })
 export class NavBarComponent {
 
+  role = localStorage.getItem('Role');
+
   constructor(private jwtService: JwtService, private router: Router) {}
 
   logout() {
@@ -18,6 +20,7 @@ export class NavBarComponent {
   }
 
   r2(destination: String) {
+    console.log(this.role);
     this.router.navigate([destination])
   }
 
