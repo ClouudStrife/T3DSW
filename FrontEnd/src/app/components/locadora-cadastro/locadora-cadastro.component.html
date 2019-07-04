@@ -36,8 +36,7 @@
       <mat-grid-list cols="2" rowHeight="80px">
         <mat-grid-tile>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="CNPJ" formControlName="cnpj" [errorStateMatcher]="matcher"
-              [dropSpecialCharacters]="false" mask="00.000.000/0000-00" />
+            <input matInput placeholder="CNPJ" formControlName="cnpj" [errorStateMatcher]="matcher" mask="00.000.000/0000-00" />
             <mat-error *ngFor="let validation of validation_messages.cnpj">
               <mat-error class="error-message"
                 *ngIf="locadoraForm.get('cnpj').hasError(validation.type) && (locadoraForm.get('cnpj').dirty || locadoraForm.get('cnpj').touched)">
